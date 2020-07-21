@@ -2,6 +2,7 @@ function plot_all_colourmaps()
 % Function plot_all_colourmaps plots all colourmaps available in the
 % directory using the default number of colour levels
 
+
 p=mfilename('fullpath');
 path=fileparts(p);
 path_parts=split(path,'/');
@@ -32,8 +33,9 @@ cdata=xdata'*ones(size(y));
 cdata=cdata';
 
 figure
+% setappdata(gcf, 'SubplotDefaultAxesLocation', [0, 0, 1, 1]);
 for jj=1:N_maps
-subplot(ceil(N_maps/2),2,jj)
+subplot(ceil(N_maps/3),3,jj)
 hold on
 colormap(gca,cm_xml_to_matlab(cmap_names{jj}))
 pcolor(xx,yy,cdata)
