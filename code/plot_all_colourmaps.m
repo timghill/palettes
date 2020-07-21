@@ -37,7 +37,7 @@ figure
 for jj=1:N_maps
 subplot(ceil(N_maps/3),3,jj)
 hold on
-colormap(gca,cm_xml_to_matlab(cmap_names{jj}))
+colormap(gca,palettes(cmap_names{jj}))
 pcolor(xx,yy,cdata)
 shading interp
 xlim([0,1])
