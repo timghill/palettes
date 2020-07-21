@@ -4,4 +4,4 @@ This repo contains XML files for most of the colour maps on the [SciVisColor Web
 ![Available colour maps](https://raw.githubusercontent.com/timghill/palettes/master/palettes.png)
 
 The following example shows the albedo on Kaskawulsh Glacier using an asymmetrical wave colourmap.
-![Albedo on Kaskawulsh Glacier](https://raw.githubusercontent.com/timghill/palettes/master/albedo_wave.png)
+![Albedo on Kaskawulsh Glacier](https://raw.githubusercontent.com/timghill/palettes/master/examples/albedo_wave.png)
