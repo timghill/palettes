@@ -15,17 +15,24 @@ from . import cm_xml_to_matplotlib as cm
 
 
 def get_cmap(name):
-    
+    """Get matplotlib LinearSegmentedColormap
+    """
+    reverse = 0
+    if name[0]=='-':
+        name = name[1:]
+        reverse = 1
+
     this_path=os.path.abspath(__file__)
     
     db_path=os.path.normpath(os.path.join(this_path,'../../cmaps/'))
 
     cmap_path=os.path.join(db_path, name + '.xml')
-    print(cmap_path)
     if not os.path.exists(cmap_path):
         raise ValueError('Colourmap "%s" does not exist' % name)
 
     cmap=cm.make_cmap(cmap_path)
+    if reverse:
+        cmap = cmap.reversed()
     return cmap
 
 def show():

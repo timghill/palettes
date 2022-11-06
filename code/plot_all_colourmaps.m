@@ -22,7 +22,6 @@ for ii=1:N_maps
     cmap_names{ii}=cmap_file(1:end-4);
 end
 
-% cmap_names{10}
 
 N_levels=12;
 xdata=linspace(0,1,N_levels);
@@ -35,14 +34,14 @@ cdata=cdata';
 figure
 % setappdata(gcf, 'SubplotDefaultAxesLocation', [0, 0, 1, 1]);
 for jj=1:N_maps
-subplot(ceil(N_maps/3),3,jj)
-hold on
-colormap(gca,palettes(cmap_names{jj}))
-pcolor(xx,yy,cdata)
-shading interp
-xlim([0,1])
-ylim([0,1])
-caxis([0,1])
-set(gca,'Visible','off')
-text(0.5,0.5,cmap_names{jj},'HorizontalAlignment','center','VerticalAlignment','middle','interpreter','none')
+    subplot(ceil(N_maps/3),3,jj)
+    hold on
+    colormap(gca,palettes(cmap_names{jj}))
+    pcolor(xx,yy,cdata)
+    shading interp
+    xlim([0,1])
+    ylim([0,1])
+    caxis([0,1])
+    set(gca,'Visible','off')
+    text(0.5,0.5,cmap_names{jj},'HorizontalAlignment','center','VerticalAlignment','middle','interpreter','none')
 end

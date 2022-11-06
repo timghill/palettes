@@ -1,11 +1,11 @@
-function colourmap=cm_xml_to_matlab(varargin)
-% cm_xml_to_matlab.m reads xml files downloaded from SciVisColor
+function colourmap=palettes(varargin)
+% palettes.m reads xml files downloaded from SciVisColor
 % (https://sciviscolor.org/home/colormaps/) to matlab arrays to use as
 % colourmaps for figures.
 % Usage:
-% cmap=cm_xml_to_matlab(name) returns a 256 x 3 array of R,G,B columns to
+% cmap=pelttes(name) returns a 256 x 3 array of R,G,B columns to
 %     use with Matlab colormap(cmap) function
-% cmap=cm_xml_to_matlab(name, N) specifies the number of colour levels to
+% cmap=palettes(name, N) specifies the number of colour levels to
 %     use
 if isempty(varargin)
     plot_all_colourmaps
