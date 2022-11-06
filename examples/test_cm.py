@@ -15,14 +15,14 @@ from palettes.code import palettes
 data=scipy.io.loadmat('test_data.mat')
 
 fig,axs=plt.subplots()
-mpl=axs.pcolormesh(data['xx'],data['yy'],data['melt'],cmap=palettes.get_cmap('mellow-rainbow'))
+mpl=axs.pcolormesh(data['kask_xx'],data['kask_yy'],data['kask_melt'],cmap=palettes.get_cmap('mellow-rainbow'))
 axs.set_axis_off()
 fig.colorbar(mpl)
 # plt.show()
 
 # 3 -- wave colourmaps
 fig,axs=plt.subplots()
-pl=axs.pcolormesh(data['xx'],data['yy'],data['albedo'],cmap=palettes.get_cmap('3-wave-yellow-grey-blue'))
+pl=axs.pcolormesh(data['kask_xx'],data['kask_yy'],data['kask_albedo'],cmap=palettes.get_cmap('3-wave-yellow-grey-blue'))
 axs.set_axis_off()
 fig.colorbar(pl)
 plt.show()
