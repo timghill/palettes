@@ -7,7 +7,7 @@ instances.
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap
 
-def join_cmaps(cm1, cm2, N1=128, N2=128, name='Joined Cmap'):
+def join_cmaps(cm1, cm2, N1=128, N2=128, name='Joined Cmap', average=False):
     """Join two LinearSegmentedColormap instances
 
     Joins colormaps cm1 and cm2 by extracting lists of
@@ -33,6 +33,10 @@ def join_cmaps(cm1, cm2, N1=128, N2=128, name='Joined Cmap'):
         Number of samples from first colormap
     N2 : int
         Number of samples from second colormap
+    
+    average : int
+        Window length to moving average filter
+        the colormap to remove hard boundaries
 
     Returns:
     -------
@@ -42,6 +46,15 @@ def join_cmaps(cm1, cm2, N1=128, N2=128, name='Joined Cmap'):
     cm2_data = cm2(np.linspace(0, 255, N2).astype(int))
 
     cm_data = np.concatenate((cm1_data, cm2_data))
+    
+    cm_smooth = np.zeros(cm_data.shape)
+    if average:
+        for j in range(cm_smooth.shape[4]):
+            col = cm_data[:, j]
+            cm_smooth[:len(col), j] = np.convolve(col, np.ones(average))/average
+    
+        cm_data = cm_smooth[:len(col)]
+
     cm = LinearSegmentedColormap.from_list(name, cm_data)
 
     return cm
